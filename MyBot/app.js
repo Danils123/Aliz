@@ -33,6 +33,14 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`Jugando Nada nada`);
 });
 
+client.on("guildMemberAdd", (member) => {
+
+  let channel = client.channels.find("name", "lobby");
+  let output = "@" + member.user.username +"#"+ member.user.discriminator /*Username and Discriminator*/;
+
+  console.log(`Bienvenido "${member.user.username}" se has unido a la familia "${member.guild.name}"` );
+  member.guild.channels.get(channel.id).send(`${output} , Bienvenido(a) a ${member.guild.name}! Que disfrutes`);
+});
 
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
@@ -163,3 +171,4 @@ client.on("message", async message => {
 });
 
 client.login(config.token);
+
