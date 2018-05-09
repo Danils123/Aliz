@@ -6,39 +6,36 @@ const Discord = require("discord.js");
 // this is what we're refering to. Your client.
 const client = new Discord.Client();
 
-const fs = require("fs");
+// const fs = require("fs");
 
-const Enmap = require("enmap");
+// const Enmap = require("enmap");
 // Here we load the config.json file that contains our token and our prefix values. 
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
+// fs.readdir("./events/", (err, files) => {
+//   if (err) return console.error(err);
+//   files.forEach(file => {
+//     const event = require(`./events/${file}`);
+//     let eventName = file.split(".")[0];
+//     client.on(eventName, event.bind(null, client));
+//   });
+// });
 
-client.commands = new Enmap();
+// client.commands = new Enmap();
 
-fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    client.commands.set(commandName, props);
-  });
-});
-
-​
-client.login(config.token);
+// fs.readdir("./commands/", (err, files) => {
+//   if (err) return console.error(err);
+//   files.forEach(file => {
+//     if (!file.endsWith(".js")) return;
+//     let props = require(`./commands/${file}`);
+//     let commandName = file.split(".")[0];
+//     console.log(`Attempting to load command ${commandName}`);
+//     client.commands.set(commandName, props);
+//   });
+// });
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -163,3 +160,5 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
 });
+
+client.login(config.token);
