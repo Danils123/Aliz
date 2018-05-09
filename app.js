@@ -1,6 +1,17 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
+const cool = require('cool-ascii-faces')
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
 
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .get('/cool', (req, res) => res.send(cool()))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
 // this is what we're refering to. Your client.
