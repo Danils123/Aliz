@@ -8,5 +8,5 @@ exports.channels = (client, message, args) => {
     }else   {
         response = "No encuentro ningun canal con ese nombre";
     }
-    await message.channel.send(response);
+    message.channel.send(response);
 }
