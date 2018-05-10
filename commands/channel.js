@@ -1,5 +1,4 @@
 exports.channels = (client, message, args) => {
-    let args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     let channel = args[1];
     let channel_id = client.channels.find("name", "" + channel);
     let response = '';

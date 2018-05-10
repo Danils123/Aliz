@@ -2,8 +2,12 @@
   "requires": true,
   "lockfileVersion": 1,
   "dependencies": {
+    "chalk-console": "^1.0.1",
     "cool-ascii-faces": "^1.3.4",
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "enmap": "^2.2.1",
+    "enmap-level": "^2.1.0",
+    "moment": "^2.22.1"
   },
   "name": "aliz",
   "description": "",
