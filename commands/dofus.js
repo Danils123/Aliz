@@ -4,8 +4,8 @@ exports.dofus = (client, message, args) => {
     let response = '';
     
     if(channel !== '' && channel !== null && channel !== undefined){
-        const xz = await client.channels.get(channel.id).send('Comentando en otro canal');
+        const xz = client.channels.get(channel.id).send('Comentando en otro canal');
     }else   {
-        const xz = await client.channels.get('439987469367377930').send('Comentando en otro canal');
+        const xz = client.channels.get('439987469367377930').send('Comentando en otro canal');
     }
 }
